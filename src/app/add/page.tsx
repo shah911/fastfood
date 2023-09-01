@@ -98,6 +98,7 @@ function page() {
                 }),
               });
               const data = await res.json();
+              setIsLoading(false);
               router.push(`/product/${data.id}`);
 
               //console.log(res);
@@ -106,7 +107,6 @@ function page() {
             }
           };
           handleSubmit();
-          setIsLoading(false);
         });
       }
     );
