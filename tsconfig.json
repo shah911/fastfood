@@ -29,7 +29,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "prisma/schema.prisma",
-    "src/app/api/cloudinary/route.ts"
+    "src/app/api/cloudinary/route.ts",
+    "src/app/api/(checkout)/create-intent/[orderId]/route.js"
   ],
   "exclude": ["node_modules"]
 }
