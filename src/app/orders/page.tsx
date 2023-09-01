@@ -1,4 +1,5 @@
 "use client";
+import Loader from "@/components/Loader/Loader";
 import { OrderType } from "@/types/types";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
@@ -11,15 +12,14 @@ export default function orders() {
   const router = useRouter();
   const { isLoading, error, data } = useQuery({
     queryKey: ["orders"],
-    queryFn: () =>
-      fetch("http://localhost:3000/api/orders").then((res) => res.json()),
+    queryFn: () => fetch("/api/orders").then((res) => res.json()),
   });
 
   const queryClient = useQueryClient();
 
   const Mutation = useMutation({
     mutationFn: ({ id, status }: { id: String; status: String }) => {
-      return fetch(`http://localhost:3000/api/orders/${id}`, {
+      return fetch(`/api/orders/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -42,11 +42,7 @@ export default function orders() {
   };
 
   if (isLoading || status === "loading") {
-    return (
-      <div className="h-screen flex items-center justify-center">
-        LOADING...
-      </div>
-    );
+    return <Loader />;
   } else if (status === "unauthenticated") {
     router.push("/");
   } else {

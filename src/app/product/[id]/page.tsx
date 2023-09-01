@@ -6,7 +6,7 @@ import { ProductType } from "@/types/types";
 import DeleteButton from "@/components/DeleteButton";
 
 const getData = async (id: string) => {
-  const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+  const res = await fetch(process.env.NEXTAUTH_URL + `/api/products/${id}`, {
     cache: "no-store",
   });
   if (!res.ok) {

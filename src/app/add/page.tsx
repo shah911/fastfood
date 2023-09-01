@@ -89,7 +89,7 @@ function page() {
           //console.log(downloadURL);
           const handleSubmit = async () => {
             try {
-              const res = await fetch("http://localhost:3000/api/products", {
+              const res = await fetch("/api/products", {
                 method: "POST",
                 body: JSON.stringify({
                   img: downloadURL,
@@ -98,14 +98,15 @@ function page() {
                 }),
               });
               const data = await res.json();
-              setIsLoading(false);
               router.push(`/product/${data.id}`);
+
               //console.log(res);
             } catch (err) {
               console.log(err);
             }
           };
           handleSubmit();
+          setIsLoading(false);
         });
       }
     );
