@@ -24,7 +24,7 @@ function SuccessPage() {
     };
 
     makeRequest();
-  }, [payment_intent, router]);
+  }, [payment_intent, router, emptyCart]);
 
   return (
     <div className="h-screen flex flex-col gap-4 items-center justify-center">
