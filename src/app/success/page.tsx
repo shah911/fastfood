@@ -30,7 +30,7 @@ function SuccessPage() {
     <div className="h-screen flex flex-col gap-4 items-center justify-center">
       <span className="font-bold text-3xl">Thanks for buying</span>
       <p className="font-light text-xl">
-        Don't refresh you will be redirected to orders page
+        Do not refresh you will be redirected to orders page
       </p>
     </div>
   );
