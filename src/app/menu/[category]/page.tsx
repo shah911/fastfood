@@ -22,7 +22,7 @@ type Props = {
   params: { category: string };
 };
 
-export default async function category({ params }: Props) {
+export default async function Category({ params }: Props) {
   const products: ProductType[] = await getData(params.category);
 
   return (

@@ -9,7 +9,7 @@ const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
 );
 
-function page({ params }: { params: { id: string } }) {
+function PayPage({ params }: { params: { id: string } }) {
   const { status } = useSession();
   const router = useRouter();
   const [clientSecret, setClientSecret] = useState("");
@@ -17,12 +17,9 @@ function page({ params }: { params: { id: string } }) {
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        const res = await fetch(
-          `http://localhost:3000/api/create-intent/${id}`,
-          {
-            method: "POST",
-          }
-        );
+        const res = await fetch(`/api/create-intent/${id}`, {
+          method: "POST",
+        });
         const data = await res.json();
         setClientSecret(data.clientSecret);
       } catch (err) {
@@ -78,4 +75,4 @@ function page({ params }: { params: { id: string } }) {
   }
 }
 
-export default page;
+export default PayPage;

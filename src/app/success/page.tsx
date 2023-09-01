@@ -4,7 +4,7 @@ import { useCartStore } from "@/utils/store";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 
-function page() {
+function SuccessPage() {
   const SearchParams = useSearchParams();
   const { emptyCart } = useCartStore();
   const payment_intent = SearchParams.get("payment_intent");
@@ -36,4 +36,4 @@ function page() {
   );
 }
 
-export default page;
+export default SuccessPage;

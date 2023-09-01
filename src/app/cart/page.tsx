@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useEffect } from "react";
 
-export default function cart() {
+export default function Cart() {
   const { products, totalItems, totalPrice, removeFromCart } = useCartStore();
   const { data: session } = useSession();
   const router = useRouter();
@@ -18,7 +18,7 @@ export default function cart() {
       router.push("/login");
     } else {
       try {
-        const res = await fetch("http://localhost:3000/api/orders", {
+        const res = await fetch("/api/orders", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({

@@ -16,7 +16,7 @@ const getData = async (id: string) => {
   }
 };
 
-export default async function singleProductpage({
+export default async function SingleProductpage({
   params,
 }: {
   params: { id: string };

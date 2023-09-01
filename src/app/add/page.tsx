@@ -24,7 +24,7 @@ type Option = {
   additionalPrice: number;
 };
 
-function page() {
+function AddProductPage() {
   const { data: session, status } = useSession();
   const [isLoading, setIsLoading] = useState(false);
   const [inputs, setInputs] = useState<Inputs>({
@@ -235,4 +235,4 @@ function page() {
   }
 }
 
-export default page;
+export default AddProductPage;

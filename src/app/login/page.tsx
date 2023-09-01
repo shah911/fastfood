@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 
-export default function login() {
+export default function Login() {
   const { data, status } = useSession();
   const router = useRouter();
 
